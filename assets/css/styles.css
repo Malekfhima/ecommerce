@@ -35,6 +35,29 @@ nav a {
     padding: 1rem;
     width: calc(33.333% - 2rem);
     box-sizing: border-box;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card .btn {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.product-card .btn:hover {
+    background: #0056b3;
 }
 
 footer {

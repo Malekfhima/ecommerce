@@ -1,7 +1,6 @@
 <?php
 include 'includes/db.php';
 
-// Récupérer les produits par catégorie (ex: "fitness")
 $category = $_GET['category'] ?? 'all';
 $sql = $category === 'all' ? "SELECT * FROM products" : "SELECT * FROM products WHERE category = ?";
 $stmt = $pdo->prepare($sql);
@@ -25,9 +24,8 @@ $products = $stmt->fetchAll();
         <div class="product-card">
             <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>">
             <h3><?= $product['name'] ?></h3>
-            <p><?= $product['description'] ?></p>
-            <p>Prix: <?= $product['price'] ?> €</p>
-            <button onclick="addToCart(<?= $product['id'] ?>)">Ajouter au panier</button>
+            <p><?= $product['price'] ?> €</p>
+            <a href="product_details.php?id=<?= $product['id'] ?>" class="btn">Voir plus</a>
         </div>
     <?php endforeach; ?>
 </div>
