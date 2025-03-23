@@ -17,7 +17,7 @@
             <a href="cart.php"><i class="fas fa-shopping-cart"></i> Panier</a>
             <?php if (isset($_SESSION['user_id'])): ?>
                 <?php if ($_SESSION['role'] === 'admin'): ?>
-                    <a href="admin/dashboard.php"><i class="fas fa-tools"></i> Admin</a>
+                    <a href="admin/dashboard.php"><i class="fas fa-tools"></i>Tableau de Bord</a>
                 <?php endif; ?>
                 <a href="profile.php"><i class="fas fa-user"></i> Profil</a>
                 <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>

@@ -1,47 +1,48 @@
 <?php
 session_start();
+
+// Vérifier si l'utilisateur est un administrateur
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header('Location: ../login.php');
     exit;
 }
+
 include '../includes/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $price = $_POST['price'];
-    $category = $_POST['category'];
-    $stock = $_POST['stock'];
-    $image = $_POST['image'];
-
-    $stmt = $pdo->prepare("INSERT INTO products (name, description, price, category, stock, image) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$name, $description, $price, $category, $stock, $image]);
-}
+// Récupérer tous les produits
+$stmt = $pdo->query("SELECT * FROM products");
+$products = $stmt->fetchAll();
 ?>
 
 <?php include '../includes/header.php'; ?>
 
-<h2>Gérer les Produits</h2>
-<form method="POST" action="manage_products.php">
-    <label for="name">Nom:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" required></textarea>
-
-    <label for="price">Prix:</label>
-    <input type="number" id="price" name="price" step="0.01" required>
-
-    <label for="category">Catégorie:</label>
-    <input type="text" id="category" name="category" required>
-
-    <label for="stock">Stock:</label>
-    <input type="number" id="stock" name="stock" required>
-
-    <label for="image">Image:</label>
-    <input type="text" id="image" name="image" required>
-
-    <button type="submit">Ajouter</button>
-</form>
+<div class="admin-container">
+    <h2>Gérer les Produits</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                    <td><?= $product['id'] ?></td>
+                    <td><?= $product['name'] ?></td>
+                    <td><?= $product['price'] ?> €</td>
+                    <td><?= $product['stock'] ?></td>
+                    <td>
+                        <a href="edit_product.php?id=<?= $product['id'] ?>">Modifier</a>
+                        <a href="delete_product.php?id=<?= $product['id'] ?>" onclick="return confirm('Êtes-vous sûr ?')">Supprimer</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
 <?php include '../includes/footer.php'; ?>

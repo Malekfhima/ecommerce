@@ -33,7 +33,7 @@ foreach ($cartItems as $item) {
                     <img src="assets/images/<?= $item['image'] ?>" alt="<?= $item['name'] ?>">
                     <div class="cart-item-details">
                         <h3><?= $item['name'] ?></h3>
-                        <p>Prix unitaire: <?= $item['price'] ?> TDN</p>
+                        <p>Prix unitaire: <?= $item['price'] ?> €</p>
                         <div class="quantity">
                             <button onclick="updateQuantity(<?= $item['id'] ?>, 'decrease')">-</button>
                             <input type="text" value="<?= $item['quantity'] ?>" readonly>
@@ -49,7 +49,9 @@ foreach ($cartItems as $item) {
     </div>
     <div class="cart-summary">
         <h3>Total: <?= $total ?> €</h3>
-        <button class="checkout-btn">Passer la commande</button>
+        <?php if (count($cartItems) > 0): ?>
+            <a href="checkout.php" class="checkout-btn">Passer la commande</a>
+        <?php endif; ?>
     </div>
 </div>
 
