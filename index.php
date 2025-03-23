@@ -3,7 +3,7 @@
 <div class="hero">
     <h1>Bienvenue sur SportShop</h1>
     <p>Votre destination pour les meilleurs produits sportifs.</p>
-    <a href="products.php" class="btn">Voir les produits</a>
+    <a href="products.php" class="btn">Voir les produits <i class="fas fa-arrow-right"></i></a>
 </div>
 
 <section class="featured-products">
@@ -18,7 +18,7 @@
                 <img src="assets/images/<?= $product['image'] ?>" alt="<?= $product['name'] ?>">
                 <h3><?= $product['name'] ?></h3>
                 <p><?= $product['price'] ?> €</p>
-                <a href="product_details.php?id=<?= $product['id'] ?>" class="btn">Voir plus</a>
+                <a href="product_details.php?id=<?= $product['id'] ?>" class="btn">Voir plus <i class="fas fa-eye"></i></a>
             </div>
         <?php endwhile; ?>
     </div>

@@ -19,7 +19,7 @@ if (!$product) {
     <p><?= $product['description'] ?></p>
     <p>Prix: <?= $product['price'] ?> €</p>
     <p>Stock: <?= $product['stock'] > 0 ? 'Disponible' : 'Rupture de stock' ?></p>
-    <button onclick="addToCart(<?= $product['id'] ?>)">Ajouter au panier</button>
+    <button onclick="addToCart(<?= $product['id'] ?>)">Ajouter au panier <i class="fas fa-cart-plus"></i></button>
 </div>
 
 <?php include 'includes/footer.php'; ?>

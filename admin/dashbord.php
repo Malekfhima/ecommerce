@@ -11,8 +11,8 @@ include '../includes/db.php';
 
 <h2>Tableau de Bord Administrateur</h2>
 <ul>
-    <li><a href="manage_products.php">Gérer les produits</a></li>
-    <li><a href="manage_orders.php">Gérer les commandes</a></li>
+    <li><a href="manage_products.php"><i class="fas fa-box"></i> Gérer les produits</a></li>
+    <li><a href="manage_orders.php"><i class="fas fa-receipt"></i> Gérer les commandes</a></li>
 </ul>
 
 <?php include '../includes/footer.php'; ?>
