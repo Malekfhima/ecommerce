@@ -14,7 +14,7 @@ $stmt = $pdo->query("SELECT orders.*, users.username FROM orders JOIN users ON o
 $orders = $stmt->fetchAll();
 ?>
 
-<?php include '../includes/header.php'; ?>
+<?php include 'header1.php'; ?>
 
 <div class="admin-container">
     <h2>Gérer les Commandes</h2>

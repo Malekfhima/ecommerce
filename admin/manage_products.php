@@ -14,7 +14,7 @@ $stmt = $pdo->query("SELECT * FROM products");
 $products = $stmt->fetchAll();
 ?>
 
-<?php include '../includes/header.php'; ?>
+<?php include 'header1.php'; ?>
 
 <div class="admin-container">
     <h2>Gérer les Produits</h2>

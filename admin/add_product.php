@@ -19,14 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $image = $_POST['image'];
 
     // Insérer le produit dans la base de données
-    $stmt = $pdo->prepare("INSERT INTO products (name, description, price, category, stock, image) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO products (name, description, price, image, stock, category) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->execute([$name, $description, $price, $category, $stock, $image]);
 
     echo "<p>Produit ajouté avec succès !</p>";
 }
 ?>
 
-<?php include '../includes/header.php'; ?>
+<?php include 'header1.php'; ?>
 
 <div class="admin-container">
     <h2>Ajouter un Produit</h2>
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="number" id="stock" name="stock" required>
 
         <label for="image">URL de l'image:</label>
-        <input type="text" id="image" name="image" required>
+        <input type="text" id="image" name="image">
 
         <button type="submit">Ajouter</button>
     </form>

@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 include '../includes/db.php';
 ?>
 
-<?php include '../includes/header.php'; ?>
+<?php include 'header1.php'; ?>
 
 <div class="admin-dashboard">
     <h2>Tableau de Bord Administrateur</h2>
